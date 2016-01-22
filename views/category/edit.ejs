@@ -1,0 +1,14 @@
+<% include ../partials/header.ejs %>
+
+<h1><%= title %></h1>
+<form method="POST" action ="/category/edit/<%= category.name %>?_method=PUT">
+  <div class="form-group">
+    <label for="name">Category Name</label>
+    <input class="form-control" type ="text" name="name" placeholder="Category Name" value="<%= category.name %>"></input>
+    <label for="image_url">Image URL</label>
+    <input class="form-control" type ="text" name="image_url" placeholder="Image URL" value="<%= category.image_url %>"></input>
+  </div>
+  <button class="btn btn-default" type="submit">Submit</button>
+</form>
+
+<% include ../partials/footer.ejs %>

@@ -1,0 +1,23 @@
+<% include ../partials/header.ejs %>
+<div class="container">
+  <h1><%= title %></h1>
+  <div class="row">
+    <% for (var i=0; i<categories.length; i++) { %>
+      <% var category = categories[i]; %>
+      <div class="category-box col-md-4 <%= (isAdmin)? "admin" : "" %>">
+        <a href="/category/<%= category.name %>" class="category-image" style="background: url(<%= category.image_url %>) center;">
+            <div class="categoryName"><%= category.name %></div>
+            <% if (isAdmin) { %>
+              <div class="ownerActions">
+                <a href="/category/edit/<%= category.name %>" class="half btn btn-warning">Edit</a>
+                <form method="POST" action="/category/<%= category.name %>?_method=DELETE" class="half">
+                  <button class="btn btn-danger" type="submit">Delete</button>
+                </form>
+              </div>         
+            <% } %>
+        </a>
+      </div>
+    <% } %>
+  </div>
+</div>
+<% include ../partials/footer.ejs %>

@@ -1,0 +1,33 @@
+<% include ../partials/header.ejs %>
+
+<h1><%= title %></h1>
+<table class="table table-striped">
+  <thead>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </thead>
+  <tbody>
+    <% for (var i=0; i<accounts.length; i++) { %>
+      <% var account = accounts[i]; %>
+      <tr>
+        <td class="name"><%= account.full_name %></td>
+        <td class="email"><%= account.email %></td>
+        <td>
+          <a href="/account/edit/<%= account.email %>">
+            <span class="glyphicon glyphicon-pencil"></span>
+          </a>
+        </td>
+        <td>
+          <form method="POST" action="/account/<%= account.email %>?_method=DELETE">
+            <button class="remove-btn" type="submit"><span class="glyphicon glyphicon-remove"></span></button>
+          </form>
+        </td>
+      </tr>
+    <% } %>
+  </tbody>
+</table>
+
+<% include ../partials/footer.ejs %>
+

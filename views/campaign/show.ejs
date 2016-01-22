@@ -1,0 +1,57 @@
+<% include ../partials/header.ejs %>
+
+<div class="container campaign">
+  <div class="row">
+    <div class="col-md-9">
+      <h1><%= title %></h1>
+      <% if (isAdmin || accountEmail == campaign.owner) { %>
+        <div class="ownerActions">
+          <a href="/campaign/edit/<%= campaign.id %>" class="half btn btn-warning btn-lg">Edit</a>
+          <form method="POST" action="/campaign/<%= campaign.id %>?_method=DELETE" class="half">
+            <button class="btn btn-danger btn-lg" type="submit">Delete</button>
+          </form>
+        </div>
+      <% } %>
+      <hr />
+
+      <h3>Company</h3>
+      <p><%= campaign.owner_name %></p>
+
+      <h3>Description</h3>
+      <p><%= campaign.description %></p>
+
+      <h3>Start Date</h3>
+      <p><%= formatDate(campaign.start_date) %></p>
+
+      <h3>End Date</h3>
+      <p><%= formatDate(campaign.end_date) %></p>
+
+      <h3>Target</h3>
+      <p>$<%= campaign.target_fund %></p>
+
+      <h3>Pledged: $<%=campaign.pledged%></h3>
+      <%
+        var progress = parseFloat(campaign.pledged) / campaign.target_fund * 100;
+        var width = (progress>100)? 100: progress; // capped at 100
+      %>
+      <div class="progress">
+        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%=progress%>" aria-valuemin="0" aria-valuemax="100" style="width: <%=width%>%;">
+          <%=progress%>%
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-3">
+        <img class="img-responsive center-block" src="<%= campaign.image_url %>" />
+        <h3>Back this project!</h3>
+        <a href="/transaction/<%= campaign.id %>/10" class="btn-pledge btn btn-default">$10</a>
+        <a href="/transaction/<%= campaign.id %>/20" class="btn-pledge btn btn-default">$20</a>
+        <a href="/transaction/<%= campaign.id %>/30" class="btn-pledge btn btn-default">$30</a>
+        <a href="/transaction/<%= campaign.id %>/40" class="btn-pledge btn btn-default">$40</a>
+        <a href="/transaction/<%= campaign.id %>/50" class="btn-pledge btn btn-default">$50</a>
+    </div>
+  </div>
+</div>
+
+<% include ../partials/footer.ejs %>
+

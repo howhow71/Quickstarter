@@ -1,0 +1,39 @@
+<% include ../partials/header.ejs %>
+
+<h1><%= title %></h1>
+<form method="POST" action="/campaign/<%=campaign.id%>?_method=PUT">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input class="form-control" type ="text" name="title" placeholder="Campaign Title" value="<%=campaign.title%>"></input>
+  </div>
+  <div class="form-group">
+    <label for="sdate">Start Date</label>
+    <input class="form-control" type ="text" name="sdate" placeholder="yyyy-mm-dd" value="<%=formatDate(campaign.start_date)%>"></input>
+  </div>
+  <div class="form-group">
+    <label for="edate">End Date</label>
+    <input class="form-control" type ="text" name="edate" placeholder="yyyy-mm-dd" value="<%=formatDate(campaign.end_date)%>"></input>
+  </div>
+  <div class="form-group">
+    <label for="goal">Goal</label>
+    <input class="form-control" type ="text" name="goal" placeholder="0" value="<%=campaign.target_fund%>"></input>
+  </div>
+  <div class="form-group">
+    <label for="img_url">Image URL</label>
+    <input class="form-control" type ="text" name="img_url" placeholder="www.example.com/img" value="<%=campaign.image_url%>"></input>
+  </div>
+  <div class="form-group">
+    <label for="desc">Description</label>
+    <textarea class="form-control" rows="5" name="desc" placeholder="This product is about ..."><%=campaign.description%></textarea>
+  </div>
+  <label for="cat">Category</label>
+  <div class="form-group">
+    <% for (var i=0; i<categories.length; i++) { %>
+      <% var check = (categories[i].name in classificationSet)? "checked='checked'" : "" ;%>
+      <label class='checkbox-inline'><input type='checkbox' name='categories[]' value='<%= categories[i].name %>' <%= check %>><%= categories[i].name %></input></label>
+    <% } %>
+  </div>
+  <button class="btn btn-default" type="submit">Submit</button>
+</form>
+
+<% include ../partials/footer.ejs %>

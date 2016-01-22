@@ -1,0 +1,35 @@
+<% include ../partials/header.ejs %>
+<div class="container">
+  <h1><%= title %></h1>
+  <table class="table table-striped">
+    <thead>
+      <th>Account Email</th>
+      <th>Amount</th>
+      <th>Date</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </thead>
+    <tbody>
+      <% for (var i=0; i<transactions.length; i++) { %>
+        <tr>
+          <% var transaction = transactions[i]; %>
+          <td><%= transaction.account_email %></td>
+          <td><%= transaction.amount %></td>
+          <td><%= transaction.time %></td>
+          <td>
+            <a href="/transaction/edit/<%= transaction.account_email %>/<%= transaction.campaign_id %>">
+              <span class="glyphicon glyphicon-pencil"></span>
+            </a>
+          </td>
+          <td>
+            <form method="POST" action="/transaction/<%= transaction.account_email %>/<%= transaction.campaign_id %>?_method=DELETE">
+              <button class="remove-btn" type="submit"><span class="glyphicon glyphicon-remove"></span></button>
+            </form>
+          </td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>
+<% include ../partials/footer.ejs %>
+

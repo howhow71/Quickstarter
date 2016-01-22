@@ -1,0 +1,14 @@
+<% include ../partials/header.ejs %>
+
+<h1><%= title %></h1>
+<img style="width:600px;" src="<%= campaign.image_url %>" />
+<p><b>Company: </b><%= campaign.owner_name %></p>
+<p><b>Title: </b><%= campaign.title %></p>
+<p><b>Description: </b><%= campaign.description %></p>
+<p><b>Start Date: </b><%= campaign.start_date %></p>
+<p><b>End Date: </b><%= campaign.end_date %></p>
+<p><b>Target: </b>$<%= campaign.target_fund %></p>
+<p><b>Pledged: </b>$<%= campaign.pledged %></p>         
+
+<% include ../partials/footer.ejs %>
+

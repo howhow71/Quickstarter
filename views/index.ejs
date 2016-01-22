@@ -1,0 +1,19 @@
+<% include partials/header.ejs %>
+
+<div class="container">
+  <h1>Welcome to Quickstarter!</h1>
+
+  <h2>Trending Categories</h2>
+  <div class="row">
+    <% for (var i=0; i < categories.length; i++) { %>
+      <% var category = categories[i]; %>
+        <div class="category-box col-md-4">
+          <a href="/category/<%= category.name %>" class="category-image" style="background: url(<%= category.image_url %>) center;">
+              <div class="categoryName"><%= category.name %></div>
+          </a>
+        </div>
+    <% } %>
+  </div>
+</div>
+
+<% include partials/footer.ejs %>

@@ -1,0 +1,197 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+/**
+ * Category styles css
+ */
+
+.category-box {
+  padding: 0;
+  /*background-color: #4e5d6c;*/
+  /*list-style: none;*/
+  text-align: center;
+  height: 256px;
+}
+.category-box.admin {
+  height: 295px;
+}
+.category-image {
+  display: block;
+  background-size: cover;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  line-height: 256px;
+}
+
+.category-image div.categoryName{
+  color: white;
+  font-size: 36px;
+  font-weight: bold;
+  opacity: 0;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  -webkit-transition: all 200ms;
+  -moz-transition: all 200ms;
+  -o-transition: all 200ms
+  transition: all 200ms;
+}
+
+.category-image:hover div.categoryName{
+  opacity: 1;
+}
+
+/**
+ * Category styles css end
+ */
+
+/**
+ * Campaign page styles start
+ */
+.campaign-card {
+  display: block;
+  background-color: #ecf0f1;
+  padding: 15px;
+  border-radius: 4px;
+  -webkit-transition: all 200ms;
+  -moz-transition: all 200ms;
+  -o-transition: all 200ms
+  transition: all 200ms;
+  font-size: 16px;
+}
+
+.index.campaign-card {
+  height: 312px;
+}
+
+a.campaign-card {
+  color: #333333;
+}
+
+.campaign-card p {
+  font-size: 16px;
+}
+
+.campaign-card td {
+  vertical-align: top;
+}
+
+.campaign-card img {
+}
+
+.campaign-card:hover {
+  box-shadow: 0 0 16px 1px rgba(0,0,0, 0.3);
+}
+
+.campaign-card .title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+/**
+ * Campaign page styles end
+ */
+
+
+/**
+ * Transaction styles css
+ */
+.transaction {
+  margin-top: 1%;
+}
+.transaction .transaction-card{
+  color:white;
+  border-radius:6px;
+  background:rgba(255, 255, 255, 0.3);
+  padding:20px;
+}
+
+.transaction hr{
+  margin-top:0px;
+  border-top: 1px dotted #FFF;
+}
+
+.transaction form div span, .transaction div div span {
+  font-size: 2em;
+}
+
+.card-logo, .paypal-logo{
+  /*width:100%;*/
+  max-width:250px;
+  /*display: inline;*/
+}
+
+.btn-transaction{
+  background:#FF7F00;
+  color:white;
+}
+.btn-transaction:hover{
+  background:#FF4E00;
+  color:white;
+}
+.btn-transaction:focus{
+  background:#FF7F00;
+  color:white;
+}
+
+.btn-cancel {
+  margin-right: 10px;
+}
+/**
+ * Transaction page styles end
+ */
+
+/**
+ * Campaign styles css
+ */
+.progress {
+  height: 40px;
+}
+.progress-bar {
+  line-height: 40px;
+  font-size: 24px;
+}
+.ownerActions {
+  width: 100%;
+  height: 55px;
+}
+.ownerActions .half{
+  display: inline-block;
+  width: 50%;
+  float: left;
+}
+.ownerActions button {
+  width: 100%;
+}
+.campaign img {
+  width: 100%;
+}
+
+.btn-pledge {
+  height: 55px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+/**
+ * Campaign styles css end
+ */
+
+/**
+ * Admin styles css start
+ */
+button.remove-btn {
+  width: 12px;
+  height: 12px;
+  color: #ea6153;
+  cursor: pointer; 
+  background: none;
+  border: none;
+}
+/**
+ * Admin styles css end
+ */

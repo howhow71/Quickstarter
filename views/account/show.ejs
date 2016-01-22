@@ -1,0 +1,13 @@
+<% include ../partials/header.ejs %>
+
+<h1><%= title %></h1>
+<p><b>Name: </b><span id="accountName"><%= account.full_name %></span></p>
+<p><b>Email: </b><span id="accountEmail"><%= account.email %></span></p>
+<% if (isAdmin) { %>
+  <form method="POST" action="/account/<%= account.email %>?_method=DELETE">
+    <button class="btn btn-danger" type="submit">Delete account</button>
+  </form>
+<% } %>
+
+<% include ../partials/footer.ejs %>
+

@@ -1,0 +1,26 @@
+<% include ../partials/header.ejs %>
+
+<h1><%= title %></h1>
+<form action ="/accounts/createAccount" method="post">
+  <div class="form-group">
+    <label for="fname">First Name</label>
+    <input class="form-control" type ="text" name="fname" placeholder="First Name"></input>
+  </div>
+  <div class="form-group">
+    <label for="lname">Last Name</label>
+    <input class="form-control" type ="text" name="lname" placeholder="Last Name"></input>
+  </div>
+  <div class="form-group">
+    <label for="email">Email Address</label>
+    <input class="form-control" type ="text" name="email" placeholder="Email Address"></input>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input class="form-control" type ="password" name="password" placeholder="Password"></input>
+  </div>
+
+  <button class="btn btn-default" type="submit">Submit</button>
+</form>
+
+<% include ../partials/footer.ejs %>
+

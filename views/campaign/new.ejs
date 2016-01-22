@@ -1,0 +1,38 @@
+<% include ../partials/header.ejs %>
+
+<h1><%= title %></h1>
+<form action ="/campaign/new" method="post">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input class="form-control" type ="text" name="title" placeholder="Campaign Title"></input>
+  </div>
+  <div class="form-group">
+    <label for="sdate">Start Date</label>
+    <input class="form-control" type ="text" name="sdate" placeholder="yyyy-mm-dd"></input>
+  </div>
+  <div class="form-group">
+    <label for="edate">End Date</label>
+    <input class="form-control" type ="text" name="edate" placeholder="yyyy-mm-dd"></input>
+  </div>
+  <div class="form-group">
+    <label for="goal">Goal</label>
+    <input class="form-control" type ="text" name="goal" placeholder="0"></input>
+  </div>
+  <div class="form-group">
+    <label for="img_url">Image URL</label>
+    <input class="form-control" type ="text" name="img_url" placeholder="www.example.com/img"></input>
+  </div>
+  <div class="form-group">
+    <label for="desc">Description</label>
+    <textarea class="form-control" rows="5" name="desc" placeholder="This product is about ..."></textarea>
+  </div>
+  <label for="cat">Category</label>
+  <div class="form-group">
+    <% for (var i=0; i<categories.length; i++) { %>
+      <label class='checkbox-inline'><input type='checkbox' name='categories[]' value='<%= categories[i].name %>'><%= categories[i].name %></input></label>
+    <% } %>
+  </div>
+  <button class="btn btn-default" type="submit">Submit</button>
+</form>
+
+<% include ../partials/footer.ejs %>

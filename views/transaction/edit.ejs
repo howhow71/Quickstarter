@@ -1,0 +1,21 @@
+<% include ../partials/header.ejs %>
+<h1><%= title %></h1>
+<div class="container">
+  <form method="POST" action="/transaction/<%= transaction.account_email %>/<%= transaction.campaign_id %>?_method=PUT">
+    <div class="form-group">
+      <label for="account_email">User Email:</label>
+      <input class="form-control" name="account_email" type="text" value="<%=transaction.account_email%>"/>
+      <label for="campaign_id">Campaign ID:</label>
+      <input class="form-control" name="campaign_id" type="text" value="<%=transaction.campaign_id%>"/>
+      <label for="amount">Pledged Amount:</label>
+      <input class="form-control" name="amount" type="number" value="<%=transaction.amount%>"/>
+      <label for="credit_card">Credit Card:</label>
+      <input class="form-control" name="credit_card" type="number" value="<%=transaction.credit_card%>"/>
+      <label for="time">Timestamp:</label>
+      <input class="form-control" name="time" type="text" value="<%=formatDate(transaction.time)%>"/>
+    </div>
+    <button class="btn btn-warning btn-lg" type="submit">Update</button>
+  </form>
+</div>
+
+<% include ../partials/footer.ejs %>
